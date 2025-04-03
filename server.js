@@ -3,7 +3,6 @@ import axios from "axios";
 import bodyParser from "body-parser";
 
 import "dotenv/config";
-console.log(process.env);
 
 const app=express();
 const port=3000; 
