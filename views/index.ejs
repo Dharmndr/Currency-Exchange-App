@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Currency-Exchange App</title> 
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="index.js" defer></script>
+</head> 
+<body>  
+        <main>
+            <h1 class="title">Currency Exchange</h1>
+             <form action="/submit" method="post" id="form" class="form-container">
+
+                 <label for="base-currency">Base Currency:</label>
+                 <select id="base-currency" name="base" >
+                    <option value="" data-display="selected" >Select Base Currency</option>
+                    <%  for(let i=0;i<codes.length;i++){  %>
+                        <option value="<%= codes[i][0] %>"><%= codes[i][0] %>-<%= codes[i][1] %></option>
+                      <%  }; %>  
+                 </select>
+
+                <label for="target-currency">Target Currency:</label>
+                <select id="target-currency" name="target" >
+                    <option value="" data-display="selected">Select Target Currency</option>
+                   <%  for(let i=0;i<codes.length;i++){  %>
+                      <option value="<%= codes[i][0] %>"><%= codes[i][0] %>-<%= codes[i][1] %></option>
+                    <%  }; %>    
+                </select> 
+ 
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" placeholder="0" >
+                
+                 <p id="error-message" hidden>Please select a value for each currency</p>
+                 <input type="submit" id="calculate-btn" value="Calculate">
+             </form>
+
+             <div class="result">
+            <%   if(locals.rate){ %>
+                <p class="exchange-rate">Exchange Rate: <span>1 <%= base %> = <%= rate %> <%= target %> </span></p>  
+                <p class="exchange-result">Exchange Result: <span><%= result %> <%= target %> </span></p> 
+           <% } %> 
+            </div>
+
+        </main> 
+        <footer>© 2025 Dharmendra Kumar. All rights reserved !!</footer> 
+    
+</body>
+</html>
