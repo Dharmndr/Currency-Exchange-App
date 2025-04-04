@@ -23,16 +23,18 @@
                     <option value="" data-display="selected">Select Target Currency</option>
                    <%  for(let i=0;i<codes.length;i++){  %>
                       <option value="<%= codes[i][0] %>"><%= codes[i][0] %>-<%= codes[i][1] %></option>
-                    <%  }; %>    
+                    <%  }; %>     
                 </select> 
  
                 <label for="amount">Amount:</label>
                 <input type="number" id="amount" name="amount" placeholder="0" >
                 
                  <p id="error-message" hidden>Please select a value for each currency</p>
+                 <p id="erroR-message" hidden>Please write a positive value</p>
+                 <p id="erroR-Message" hidden>Please select each currency and also a positive value </p>
                  <input type="submit" id="calculate-btn" value="Calculate">
              </form>
-
+   
              <div class="result">
             <%   if(locals.rate){ %>
                 <p class="exchange-rate">Exchange Rate: <span>1 <%= base %> = <%= rate %> <%= target %> </span></p>  

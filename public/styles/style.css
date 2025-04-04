@@ -71,12 +71,12 @@ label{
    font-size: 1.2rem;
    cursor: pointer;
 }
-#error-message{
+#error-message, #erroR-message, #erroR-Message {
    text-align: center;
-   color: #D62828;
-   font-weight: 500;
+   color: #D62828; 
+   font-weight: 500; 
    font-size: 1.2rem;
-   margin-bottom: 1rem;
+   margin-bottom: 1rem; 
 }
 .result{
    font-size: 1.8rem;

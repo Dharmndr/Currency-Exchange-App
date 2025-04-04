@@ -1,6 +1,8 @@
 const button=document.getElementById("calculate-btn");
 const amount=document.getElementById("amount");
 const error=document.getElementById("error-message");
+const erroR=document.getElementById("erroR-message");
+const erroRM=document.getElementById("erroR-Message");
 const selectInputs=document.querySelectorAll("select");
 const form=document.getElementById("form"); 
 
@@ -16,9 +18,24 @@ form.addEventListener("submit",(e)=>{
     }
   });
 
-  if(!isValid){
+  if(!isValid  && amount.value>=0){ 
        e.preventDefault(); // Prevents the form from being submitted
-       error.hidden = false; // Displays the error message
+       erroR.hidden = true;   // Displays the error message
+       error.hidden = false;
+       erroRM.hidden = true;
+       
+  }
+  else if(amount.value<0 && isValid){ 
+  e.preventDefault();
+  error.hidden = true;
+  erroR.hidden = false;
+  erroRM.hidden = true;
+  }
+  else if(!isValid && amount.value<0){
+    e.preventDefault();
+    erroR.hidden = true;
+  error.hidden = true;
+    erroRM.hidden = false;
   }
   else{ 
     error.hidden = true; // Hides the error message

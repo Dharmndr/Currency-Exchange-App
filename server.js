@@ -8,7 +8,6 @@ const app=express();
 const port=3000; 
 
 const apiKey = process.env.API_KEY;
-// const apiKey = "285616c827d61d3b0cb84094";
 
 app.use(express.static("public")); 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -27,14 +26,14 @@ app.get("/",async(req,res)=>{
         res.render("index.ejs",{codes:codes});
     }
     catch(error){   
-       console.log(error.response.error-type);  
+       console.log(error.response.message);  
     }
-      
+        
 });          
 app.post("/submit", async (req,res)=>{
     const base=req.body.base;
     const target=req.body.target; 
-    const amount=req.body.amount;
+    const amount=req.body.amount;  
     try{   
         const response=await axios.get(API_URL+`/pair/${base}/${target}/${amount}`);
         console.log(response.data.conversion_result);
