@@ -26,7 +26,7 @@ app.get("/",async(req,res)=>{
         res.render("index.ejs",{codes:codes});
     }
     catch(error){   
-       console.log(error.response.message);  
+       console.log(error.response.error-type);  
     }
         
 });          
