@@ -17,7 +17,7 @@ if(!apiKey){
     process.exit(1); // will say to stop processing
 } 
 const API_URL=`https://v6.exchangerate-api.com/v6/${apiKey}`;
-let codes;
+let codes; 
 
 app.get("/",async(req,res)=>{
     try{ 
@@ -47,7 +47,7 @@ app.post("/submit", async (req,res)=>{
  
     } 
     catch(error){
-       console.log(error.response.message);
+       console.log(error.response.error-type);
     }
 });
   
